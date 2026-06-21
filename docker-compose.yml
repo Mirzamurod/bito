@@ -1,0 +1,80 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: bito-mongo
+    command: ['--replSet', 'rs0', '--bind_ip_all']
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: >
+        mongosh --quiet --eval "
+          try {
+            rs.status().ok;
+          } catch (e) {
+            rs.initiate({
+              _id: 'rs0',
+              members: [{ _id: 0, host: 'mongo:27017' }]
+            }).ok;
+          }
+        "
+      interval: 5s
+      timeout: 10s
+      retries: 12
+      start_period: 15s
+
+  backend:
+    build: ./backend
+    container_name: bito-backend
+    ports:
+      - '4000:4000'
+    environment:
+      PORT: 4000
+      MONGODB_URI: mongodb://mongo:27017/bito?replicaSet=rs0
+      CORS_ORIGIN: http://localhost:3000
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      JWT_EXPIRES_IN: 8h
+      PAYMENT_WEBHOOK_SECRET: whsec_dev_secret
+      NODE_ENV: production
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://localhost:4000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:4000
+    container_name: bito-frontend
+    ports:
+      - '3000:3000'
+    environment:
+      AUTH_URL: http://localhost:3000
+      AUTH_SECRET: dev-auth-secret-change-in-production
+      JWT_SECRET: dev-jwt-secret-change-in-production
+      JWT_EXPIRES_IN: 8h
+      MONGODB_URI: mongodb://mongo:27017/bito?replicaSet=rs0
+      NEXT_PUBLIC_API_URL: http://localhost:4000
+      PAYMENT_WEBHOOK_SECRET: whsec_dev_secret
+      NODE_ENV: production
+    depends_on:
+      mongo:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+
+volumes:
+  mongo_data:

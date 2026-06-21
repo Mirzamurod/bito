@@ -1,0 +1,118 @@
+{
+  "common": {
+    "appName": "BITO POS",
+    "language": "Til",
+    "home": "Bosh sahifa",
+    "login": "Kirish",
+    "pos": "Savdo nuqtasi",
+    "reports": "Savdo hisoboti",
+    "loading": "Yuklanmoqda…",
+    "tryAgain": "Qayta urinish"
+  },
+  "metadata": {
+    "title": "BITO POS",
+    "description": "Ko'p tenantli savdo nuqtasi — checkout va admin hisobotlari."
+  },
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "description": "Qidirayotgan sahifa mavjud emas yoki ko'chirilgan.",
+    "backToPos": "POS ga qaytish"
+  },
+  "auth": {
+    "login": {
+      "title": "Tizimga kirish",
+      "email": "Email",
+      "password": "Parol",
+      "submit": "Kirish",
+      "comingSoon": "NextAuth login 3-bosqichda qo'shiladi."
+    },
+    "logout": "Chiqish",
+    "errors": {
+      "invalidCredentials": "Email yoki parol noto'g'ri."
+    }
+  },
+  "pos": {
+    "title": "Savdo nuqtasi",
+    "search": {
+      "placeholder": "Mahsulot qidirish…",
+      "empty": "Mahsulot topilmadi."
+    },
+    "table": {
+      "name": "Mahsulot",
+      "sku": "SKU",
+      "category": "Kategoriya",
+      "price": "Narx",
+      "stock": "Qoldiq",
+      "actions": "Amal"
+    },
+    "pagination": {
+      "previous": "Oldingi",
+      "next": "Keyingi",
+      "summary": "{totalPages} dan {page}-sahifa · {total} ta mahsulot"
+    },
+    "addToCart": "Savatga qo'shish",
+    "checkout": "Buyurtma berish"
+  },
+  "cart": {
+    "title": "Savat",
+    "empty": "Savat bo'sh.",
+    "subtotal": "Oraliq jami",
+    "quantity": "Soni",
+    "remove": "O'chirish",
+    "added": "{name} savatga qo'shildi.",
+    "maxStock": "Bu mahsulotdan yetarli emas."
+  },
+  "receipt": {
+    "title": "Chek",
+    "orderSummary": "Buyurtma tafsilotlari",
+    "orderId": "Buyurtma ID",
+    "pending": "To'lov kutilmoqda…",
+    "pendingNote": "To'lov hali tasdiqlanmagan. To'liq chek to'lovdan keyin ko'rinadi.",
+    "paid": "To'langan",
+    "print": "Chekni chop etish",
+    "simulatePayment": "To'lovni simulyatsiya qilish (dev)",
+    "simulateError": "To'lovni simulyatsiya qilib bo'lmadi.",
+    "cancelPayment": "To'lovni bekor qilish",
+    "addItems": "Mahsulot qo'shish",
+    "newSale": "Yangi savdo",
+    "createdAt": "Yaratilgan",
+    "paidAt": "To'langan vaqt",
+    "subtotal": "Oraliq jami",
+    "total": "Jami",
+    "noItems": "Buyurtmada mahsulot yo'q."
+  },
+  "report": {
+    "title": "Savdo hisoboti",
+    "revenue": "Umumiy tushum",
+    "margin": "Umumiy marja",
+    "dateRange": "To'langan buyurtmalarni sana bo'yicha filtrlash",
+    "pickDates": "Sana oralig'ini tanlang",
+    "from": "Boshlanish",
+    "to": "Tugash",
+    "apply": "Qo'llash",
+    "invalidRange": "Boshlanish sanasi tugash sanasidan keyin bo'lmasligi kerak.",
+    "topProducts": "Top mahsulotlar",
+    "product": "Mahsulot",
+    "quantity": "Sotilgan soni",
+    "empty": "Bu sana oralig'ida to'langan buyurtmalar yo'q."
+  },
+  "errors": {
+    "INSUFFICIENT_STOCK": "Bir yoki bir nechta mahsulot yetarli emas.",
+    "PRODUCT_NOT_FOUND": "Mahsulot topilmadi. Savatni yangilang.",
+    "INVALID_CART": "Savat bo'sh yoki noto'g'ri.",
+    "ORDER_NOT_FOUND": "Buyurtma topilmadi.",
+    "INVALID_ORDER_STATE": "Bu buyurtmani endi o'zgartirib bo'lmaydi.",
+    "INVALID_DATE": "Noto'g'ri sana.",
+    "INVALID_DATE_RANGE": "Noto'g'ri sana oralig'i.",
+    "UNAUTHORIZED": "Qayta kiring.",
+    "FORBIDDEN": "Bu amal uchun ruxsat yo'q.",
+    "TENANT_INVALID": "Hisobingiz tenanti noto'g'ri.",
+    "UNKNOWN_ERROR": "Xatolik yuz berdi. Qayta urinib ko'ring.",
+    "INTERNAL_ERROR": "Server xatosi. Keyinroq urinib ko'ring.",
+    "page": {
+      "title": "Xatolik yuz berdi",
+      "description": "Kutilmagan xatolik. Qayta urinib ko'ring yoki POS ga qayting.",
+      "backToPos": "POS ga qaytish"
+    }
+  }
+}

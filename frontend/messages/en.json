@@ -1,0 +1,118 @@
+{
+  "common": {
+    "appName": "BITO POS",
+    "language": "Language",
+    "home": "Home",
+    "login": "Login",
+    "pos": "Point of Sale",
+    "reports": "Sales Report",
+    "loading": "Loading…",
+    "tryAgain": "Try again"
+  },
+  "metadata": {
+    "title": "BITO POS",
+    "description": "Multi-tenant point-of-sale for retail checkout and admin reporting."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backToPos": "Back to POS"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "comingSoon": "NextAuth login will be added in stage 3."
+    },
+    "logout": "Sign out",
+    "errors": {
+      "invalidCredentials": "Invalid email or password."
+    }
+  },
+  "pos": {
+    "title": "Point of Sale",
+    "search": {
+      "placeholder": "Search products…",
+      "empty": "No products found."
+    },
+    "table": {
+      "name": "Product",
+      "sku": "SKU",
+      "category": "Category",
+      "price": "Price",
+      "stock": "Stock",
+      "actions": "Actions"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "summary": "Page {page} of {totalPages} · {total} products"
+    },
+    "addToCart": "Add to cart",
+    "checkout": "Checkout"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "quantity": "Qty",
+    "remove": "Remove",
+    "added": "{name} added to cart.",
+    "maxStock": "Not enough stock for this product."
+  },
+  "receipt": {
+    "title": "Receipt",
+    "orderSummary": "Order summary",
+    "orderId": "Order ID",
+    "pending": "Waiting for payment…",
+    "pendingNote": "Payment not confirmed yet. The full receipt will appear after payment.",
+    "paid": "Paid",
+    "print": "Print receipt",
+    "simulatePayment": "Simulate payment (dev)",
+    "simulateError": "Could not simulate payment.",
+    "cancelPayment": "Cancel payment",
+    "addItems": "Add items",
+    "newSale": "New sale",
+    "createdAt": "Created",
+    "paidAt": "Paid at",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "noItems": "No items in this order."
+  },
+  "report": {
+    "title": "Sales Report",
+    "revenue": "Total revenue",
+    "margin": "Total margin",
+    "dateRange": "Filter paid orders by date range",
+    "pickDates": "Pick a date range",
+    "from": "From",
+    "to": "To",
+    "apply": "Apply",
+    "invalidRange": "Start date must be on or before end date.",
+    "topProducts": "Top products",
+    "product": "Product",
+    "quantity": "Quantity sold",
+    "empty": "No paid orders in this date range."
+  },
+  "errors": {
+    "INSUFFICIENT_STOCK": "Not enough stock for one or more items.",
+    "PRODUCT_NOT_FOUND": "A product was not found. Please refresh your cart.",
+    "INVALID_CART": "Your cart is empty or invalid.",
+    "ORDER_NOT_FOUND": "Order not found.",
+    "INVALID_ORDER_STATE": "This order can no longer be changed.",
+    "INVALID_DATE": "Invalid date.",
+    "INVALID_DATE_RANGE": "Invalid date range.",
+    "UNAUTHORIZED": "Please sign in again.",
+    "FORBIDDEN": "You do not have permission for this action.",
+    "TENANT_INVALID": "Your account tenant is invalid.",
+    "UNKNOWN_ERROR": "Something went wrong. Please try again.",
+    "INTERNAL_ERROR": "Server error. Please try again later.",
+    "page": {
+      "title": "Something went wrong",
+      "description": "An unexpected error occurred. You can try again or return to the POS.",
+      "backToPos": "Back to POS"
+    }
+  }
+}
