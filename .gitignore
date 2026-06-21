@@ -1,0 +1,8 @@
+# Screen recordings — host elsewhere (GitHub limit 100 MB)
+*.mp4
+*.mov
+*.webm
+*.mkv
+
+# OS
+.DS_Store

@@ -43,6 +43,14 @@ export function SalesReport() {
     setAppliedRange({ from, to })
   }
 
+  function handleClear() {
+    setFrom(defaultRange.from)
+    setTo(defaultRange.to)
+    setAppliedRange(defaultRange)
+  }
+
+  const canClear = from !== defaultRange.from || to !== defaultRange.to
+
   const isEmpty =
     data &&
     data.totalRevenue === 0 &&
@@ -56,9 +64,11 @@ export function SalesReport() {
         to={to}
         disabled={isFetching}
         showInvalidRange={showInvalidRange}
+        showClear={canClear}
         onFromChange={setFrom}
         onToChange={setTo}
         onApply={handleApply}
+        onClear={handleClear}
       />
 
       {isLoading ? (

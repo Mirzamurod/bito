@@ -23,6 +23,8 @@ type DateRangePickerProps = {
   onFromChange: (value: string) => void
   onToChange: (value: string) => void
   onApply: () => void
+  onClear?: () => void
+  showClear?: boolean
   disabled?: boolean
   showInvalidRange?: boolean
 }
@@ -73,6 +75,8 @@ export function DateRangePicker({
   onFromChange,
   onToChange,
   onApply,
+  onClear,
+  showClear = false,
   disabled = false,
   showInvalidRange = false,
 }: DateRangePickerProps) {
@@ -126,6 +130,12 @@ export function DateRangePicker({
       <Button type='button' disabled={disabled || showInvalidRange} onClick={onApply}>
         {t('apply')}
       </Button>
+
+      {showClear && onClear ? (
+        <Button type='button' variant='outline' disabled={disabled} onClick={onClear}>
+          {t('clear')}
+        </Button>
+      ) : null}
 
       {showInvalidRange ? (
         <p className='text-destructive w-full text-sm'>{t('invalidRange')}</p>

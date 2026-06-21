@@ -18,7 +18,11 @@ export function SimulatePaymentButton({ orderId }: SimulatePaymentButtonProps) {
   const queryClient = useQueryClient()
   const [isPending, setIsPending] = useState(false)
 
-  if (process.env.NODE_ENV !== 'development') {
+  const demoPaymentEnabled =
+    process.env.NODE_ENV === 'development' ||
+    process.env.NEXT_PUBLIC_ENABLE_DEMO_PAYMENT === 'true'
+
+  if (!demoPaymentEnabled) {
     return null
   }
 

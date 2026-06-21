@@ -1,5 +1,10 @@
 export function getApiBaseUrl(): string {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL
+  // Browser → NEXT_PUBLIC_API_URL (e.g. http://localhost:4000).
+  // Server in Docker → API_URL (e.g. http://backend:4000).
+  const baseUrl =
+    typeof window === 'undefined'
+      ? process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL
+      : process.env.NEXT_PUBLIC_API_URL
 
   if (!baseUrl) {
     throw new Error('NEXT_PUBLIC_API_URL is not set')

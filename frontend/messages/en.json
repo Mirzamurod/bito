@@ -90,6 +90,7 @@
     "from": "From",
     "to": "To",
     "apply": "Apply",
+    "clear": "Clear",
     "invalidRange": "Start date must be on or before end date.",
     "topProducts": "Top products",
     "product": "Product",

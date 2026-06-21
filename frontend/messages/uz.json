@@ -90,6 +90,7 @@
     "from": "Boshlanish",
     "to": "Tugash",
     "apply": "Qo'llash",
+    "clear": "Tozalash",
     "invalidRange": "Boshlanish sanasi tugash sanasidan keyin bo'lmasligi kerak.",
     "topProducts": "Top mahsulotlar",
     "product": "Mahsulot",

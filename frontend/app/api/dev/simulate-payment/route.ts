@@ -2,9 +2,13 @@ import crypto from 'crypto'
 import { NextResponse } from 'next/server'
 
 import { auth } from '@/auth'
+import { getApiBaseUrl } from '@/lib/api-client'
 
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV === 'production') {
+  const demoPaymentEnabled =
+    process.env.NODE_ENV !== 'production' || process.env.ENABLE_DEMO_PAYMENT === 'true'
+
+  if (!demoPaymentEnabled) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
   }
 
@@ -27,12 +31,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'PAYMENT_WEBHOOK_SECRET is not configured' }, { status: 500 })
   }
 
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL
-
-  if (!apiBaseUrl) {
-    return NextResponse.json({ error: 'NEXT_PUBLIC_API_URL is not configured' }, { status: 500 })
-  }
-
   const webhookBody = JSON.stringify({
     eventId: `evt_dev_${Date.now()}`,
     orderId,
@@ -42,7 +40,7 @@ export async function POST(request: Request) {
 
   const signature = crypto.createHmac('sha256', secret).update(webhookBody).digest('hex')
 
-  const response = await fetch(`${apiBaseUrl}/api/webhooks/payment`, {
+  const response = await fetch(`${getApiBaseUrl()}/api/webhooks/payment`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

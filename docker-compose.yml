@@ -58,6 +58,7 @@ services:
       context: ./frontend
       args:
         NEXT_PUBLIC_API_URL: http://localhost:4000
+        NEXT_PUBLIC_ENABLE_DEMO_PAYMENT: 'true'
     container_name: bito-frontend
     ports:
       - '3000:3000'
@@ -68,7 +69,9 @@ services:
       JWT_EXPIRES_IN: 8h
       MONGODB_URI: mongodb://mongo:27017/bito?replicaSet=rs0
       NEXT_PUBLIC_API_URL: http://localhost:4000
+      API_URL: http://backend:4000
       PAYMENT_WEBHOOK_SECRET: whsec_dev_secret
+      ENABLE_DEMO_PAYMENT: 'true'
       NODE_ENV: production
     depends_on:
       mongo:
